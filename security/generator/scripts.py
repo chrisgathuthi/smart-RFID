@@ -2,7 +2,9 @@
 import qrcode
 
 # Data to encode
-data = "GeeksforGeeks"
+data = "GeeksforGeeks christopher Gathuthi" 
+
+
 
 # Creating an instance of QRCode class
 qr = qrcode.QRCode(version = 1,
@@ -11,6 +13,7 @@ qr = qrcode.QRCode(version = 1,
 
 # Adding data to the instance 'qr'
 qr.add_data(data)
+
 
 qr.make(fit = True)
 img = qr.make_image(fill_color = 'red',
