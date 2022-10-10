@@ -1,0 +1,25 @@
+
+<table>
+    <thead>
+        <tr>
+            <td>REG NO:</td>
+            <td>FIRST NAME</td>
+            <td>GADGET BRAND</td>
+            <td>GADGET MODEL</td>
+            <td>GADGET SERIAL</td>
+            <td>QR CODE</td>
+        </tr>
+    </thead>
+<tbody>
+    {% for qs in qs %}
+    <tr>
+        <td>{{qs.reg_no}}</td>
+        <td>{{qs.first_name}}</td>
+        <td>{{qs.gadget_brand}}</td>
+        <td>{{qs.gadget_model}}</td>
+        <td>{{qs.gadget_serial}}</td>
+        <td><a href="{{qs.qr_code.url}}">Download</a></td>
+    </tr>
+    {% endfor %}
+</tbody>
+</table>

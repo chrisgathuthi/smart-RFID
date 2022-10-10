@@ -1,0 +1,88 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.container{
+    width: 60%;
+    margin: 50px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    box-shadow: 0 0 2px 2px rgba(0,0,0,0.4);
+    position: relative;
+}
+.header-text{
+    width: 60%;
+    height: max-content;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: bold;
+}
+.container .contents{
+    position: absolute;
+    top: 0;
+    margin: 4px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 20vh;
+    background-color: #31E1F7;
+
+}
+.container .contents label{
+    font-weight: 600;
+    font-size: 18px;
+    margin-right: 8px;
+}
+.container .contents input{
+    width: 45%;
+    height: 5vh;
+    border: none;
+    outline: none;
+    text-align: center;
+    border-radius: 10px;
+}
+.container .contents input::placeholder{
+    font-weight: 400;
+    font-style: italic;
+    text-align: center;
+}
+.search-results{
+    width: 100%;
+    height: 50vh;
+}
+table{
+    width: 100%;
+}
+.search-results table thead{
+    background: #000000;
+    color: #fff;
+    width: 100%;
+    border: 2px solid grey;
+}
+.search-results table thead tr{
+    width: 100%;
+}
+.search-results table thead tr td{
+    width: max-content;
+    margin: 4px auto;
+    text-align: center;
+}
+.search-results table tbody tr{
+    width: 100%;
+}
+.search-results table tbody tr td{
+    text-align: center;
+    color: black;
+    width: max-content;
+}
+.search-results table tbody tr td a{
+    text-decoration: none;
+    font-size: 18px;
+    color: #050542;
+}
