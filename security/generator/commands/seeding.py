@@ -11,7 +11,7 @@ class Command(BaseCommand):
 
         os_ = ["windows","harmony","ubuntu","ios","android","linux"]
         brands = ["mac","hp","lenovo","asus"]
-        for i in range(10):
+        for i in range(30):
             Student.objects.create(gadget_os = random.choice(os_),first_name = "jane",last_name = "john",gadget_serial = "hdds333GG",gadget_brand = "folio",gadget_model = random.choice(brands),reg_no = "hdb212-0999/2019",email = "chris@gmail.com")
         print("completed")            
-        return super().handle(*args, **options)
+        

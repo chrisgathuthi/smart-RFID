@@ -1,9 +1,11 @@
+from email.policy import default
 from django.db import models
 from django.db.models import Q
 import qrcode
 from io import BytesIO
 from PIL import Image, ImageDraw
 from django.core.files import File
+from django.contrib.auth.models import User
 # Create your models here.
 
 class StudentManager(models.Manager):
@@ -35,18 +37,34 @@ class Student(models.Model):
         return f"{self.reg_no}"
 
     def save(self, *args, **kwargs):
-        data = self.reg_no +" "+ self.gadget_serial 
-        qrcode_img = qrcode.make(data)
-        canvas = Image.new("RGB",(290,290),"white")
-        draw = ImageDraw.Draw(canvas)
-        canvas.paste(qrcode_img)
-        new_name = self.reg_no.replace("/","-")
-        fname = f"qrcode-{new_name}.png"
-        buffer = BytesIO()
-        canvas.save(buffer,"Png")
-        self.qr_code.save(fname,File(buffer),save=False)
-        canvas.close()
+        # data = self.reg_no +" "+ self.gadget_serial 
+        # qrcode_img = qrcode.make(data)
+        # canvas = Image.new("RGB",(290,290),"white")
+        # draw = ImageDraw.Draw(canvas)
+        # canvas.paste(qrcode_img)
+        # new_name = self.reg_no.replace("/","-")
+        # fname = f"qrcode-{new_name}.png"
+        # buffer = BytesIO()
+        # canvas.save(buffer,"Png")
+        # self.qr_code.save(fname,File(buffer),save=False)
+        # canvas.close()
         super().save(*args,**kwargs)
+
+
+class Staff(models.Model):
+    name = models.CharField(max_length=100)
+    country = models.CharField(max_length=100)
+    likes = models.ManyToManyField(
+        User,related_name = "like",
+        default = None,
+        blank= True
+    )
+
+
+    def __str__(self) -> str:
+        return self.name
+    
+
 
 
 
