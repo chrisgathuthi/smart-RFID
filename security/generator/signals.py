@@ -16,14 +16,14 @@ def create_qr(sender,instance,*args,**kwargs):
 
     Return the qr code matrix 
     """
-    qr = qrcode.QRCode(version=1, box_size = 10, border=5)
+    qr = qrcode.QRCode(version=1, box_size = 6, border=5)
 
     data = instance.reg_no +" "+ instance.gadget_serial 
     qr.add_data(data)
     qr.make(fit=True)
     # qrcode_img = qrcode.make(data)
-    qrcode_img=qr.make_image(fill_color = 'red', back_color = 'white')
-    canvas = Image.new("RGB",(200,200),"white")
+    qrcode_img=qr.make_image(fill_color = 'black', back_color = 'white')
+    canvas = Image.new("RGB",(190,190),"white")
     draw = ImageDraw.Draw(canvas)
     canvas.paste(qrcode_img)
     new_name = instance.reg_no.replace("/","-")
