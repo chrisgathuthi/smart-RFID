@@ -1,11 +1,12 @@
 from PIL import Image, ImageDraw
 import qrcode
 
-from django.db.models.signals import pre_save
+from django.db.models.signals import pre_save, post_save
 from django.dispatch import receiver
 from io import BytesIO
 from django.core.files import File
-
+from django.conf import settings
+import os
 from .models import Student
 
 
@@ -33,7 +34,11 @@ def create_qr(sender,instance,*args,**kwargs):
     instance.qr_code.save(fname,File(buffer),save=False)
     canvas.close()
 
-
+@receiver(post_save,sender=Student)
+def text_generator(sender,instance,created,**kwargs):
+    if created:
+        with open(os.path.join(settings.MEDIA_ROOT,"db_data.txt"),"a",encoding="utf-8") as f:
+            data = f.write(str(instance.reg_no)+"\n")
 
 # Importing library
 #import qrcode

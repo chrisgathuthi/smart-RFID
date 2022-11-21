@@ -8,13 +8,6 @@ from django.core.files import File
 from django.contrib.auth.models import User
 # Create your models here.
 
-class StudentManager(models.Manager):
-    def search(self,data=None,*args,**kwargs):
-        if data is None or data == "":
-            return self.get_queryset().none()
-        return self.get_queryset().filter(reg_no__iexact=data)
-
-
 class Student(models.Model):    
     """
     students model for database
@@ -31,24 +24,11 @@ class Student(models.Model):
     gadget_os = models.CharField(max_length=8,choices=os_list)
     reg_date= models.DateField(auto_now_add=True)
 
-    objects =  StudentManager()
+ 
 
     def __str__(self) -> str:
         return f"{self.reg_no}"
 
-    def save(self, *args, **kwargs):
-        # data = self.reg_no +" "+ self.gadget_serial 
-        # qrcode_img = qrcode.make(data)
-        # canvas = Image.new("RGB",(290,290),"white")
-        # draw = ImageDraw.Draw(canvas)
-        # canvas.paste(qrcode_img)
-        # new_name = self.reg_no.replace("/","-")
-        # fname = f"qrcode-{new_name}.png"
-        # buffer = BytesIO()
-        # canvas.save(buffer,"Png")
-        # self.qr_code.save(fname,File(buffer),save=False)
-        # canvas.close()
-        super().save(*args,**kwargs)
 
 
 class Staff(models.Model):
