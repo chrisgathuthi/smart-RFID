@@ -24,7 +24,7 @@ def create_qr(sender,instance,*args,**kwargs):
     qr.make(fit=True)
     # qrcode_img = qrcode.make(data)
     qrcode_img=qr.make_image(fill_color = 'black', back_color = 'white')
-    canvas = Image.new("RGB",(190,190),"white")
+    canvas = Image.new("RGB",(220,220),"white")
     draw = ImageDraw.Draw(canvas)
     canvas.paste(qrcode_img)
     new_name = instance.reg_no.replace("/","-")
