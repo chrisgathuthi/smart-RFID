@@ -6,7 +6,7 @@
             <td>FIRST NAME</td>
             <td>GADGET BRAND</td>
             <td>GADGET MODEL</td>
-            <td>GADGET SERIAL</td>
+            <td>GADGET OS</td>
             <td>QR CODE</td>
         </tr>
     </thead>
@@ -17,7 +17,7 @@
         <td>{{qs.first_name}}</td>
         <td>{{qs.gadget_brand}}</td>
         <td>{{qs.gadget_model}}</td>
-        <td>{{qs.gadget_serial}}</td>
+        <td>{{qs.gadget_os}}</td>
         <td><a href="{{qs.qr_code.url}}">Download</a></td>
     </tr>
     {% endfor %}
