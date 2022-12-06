@@ -10,7 +10,7 @@ cap.set(4,640)
 with open(r"C:\Users\HP\Documents\Dev\smart-RFID\security\db_data.txt","r") as f:
     datalist = f.read().splitlines()
 print(datalist)
-while False:
+while True:
     success,img = cap.read()
     for barcode in decode(img):
         myData = barcode.data.decode("utf-8")
