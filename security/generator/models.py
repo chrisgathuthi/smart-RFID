@@ -24,26 +24,11 @@ class Student(models.Model):
     gadget_os = models.CharField(max_length=8,choices=os_list)
     reg_date= models.DateField(auto_now_add=True)
 
- 
-
     def __str__(self) -> str:
         return f"{self.reg_no}"
 
 
 
-class Staff(models.Model):
-    name = models.CharField(max_length=100)
-    country = models.CharField(max_length=100)
-    likes = models.ManyToManyField(
-        User,related_name = "like",
-        default = None,
-        blank= True
-    )
-
-
-    def __str__(self) -> str:
-        return self.name
-    
 
 
 
